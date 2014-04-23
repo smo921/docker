@@ -1,0 +1,9 @@
+---
+server_name: "{{ ansible_hostname }}"
+users:
+  - username: vagrant
+    name: Vagrant User
+    uid: 1000
+    groups: ['admin']
+    ssh_key:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDZTEHyGJdZuCO9GOf9NH3Ma+VpTxLvxrbt2tcTrvP2CygCI242JEDP8LOualnERMmJXbcEsoVCS+szpB2fq0Q6ViZ3JOHdsNakd7X2uiE+jEinFIKaeuLpsHaHWqZ7mCjFYFLSvM72CvjHpHOjxhacsLun511De3zB++/fNXkfQX3WfsKe7eFisRiDQSZyyvv9eRO1dMagy0nI4Qrt74EDNcS4bhzfoSwwtAVrIpqWWmx7hmXKd2gs7JcsV1oTWs6DDtHD7tUqKbj7uBizl1ss4bsclBHeOMWmb0MRiNQYfw7oXFhGLydlTKvG7vwkNgj8NEFlNqYWvvYxj4X/g0+5"
