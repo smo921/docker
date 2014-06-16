@@ -2,7 +2,7 @@
 
 ## Setup Root Keys
 [ ! -d /root/.ssh ] && mkdir /root/.ssh
-cp /vagrant_data/authorized_keys /root/.ssh/authorized_keys
+cp /vagrant/files/authorized_keys /root/.ssh/authorized_keys
 chown root: /root/.ssh/authorized_keys
 chmod 600 /root/.ssh/authorized_keys
 
