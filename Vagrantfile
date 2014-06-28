@@ -25,7 +25,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       host.vm.provision "ansible" do |ansible|
         ansible.playbook = "provisioning/playbook.yaml"
         ansible.host_key_checking = false
-	###ansible.verbose = "vvvv"
       end
 
     end
