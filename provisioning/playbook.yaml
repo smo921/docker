@@ -5,4 +5,16 @@
     - mivok0.users
     - angstwad.docker_ubuntu
   tasks:
-
+    - meta: flush_handlers
+    - name: Install python-pip
+      apt: name=python-pip state=present
+    - name: Install docker-py
+      pip: name=docker-py
+    - name: build docker base
+      docker_image: path="/docker_images/base" name="smo921/base"
+    - name: fetch docker images
+      shell: ls /docker_images/ | grep -v base
+      register: image_list
+    - name: build docker images
+      docker_image: path="/docker_images/{{ item }}" name="smo921/{{ item }}"
+      with_items: image_list.stdout_lines
