@@ -7,7 +7,7 @@ RUN gem install fpm --bindir=/usr/bin --no-rdoc --no-ri
 RUN apt-get install -y curl
 
 
-RUN curl ftp://ftp.ruby-lang.org/pub/ruby/ruby-<%= version %>.tar.gz|tar oxzC /tmp
+RUN curl ftp://ftp.ruby-lang.org/pub/ruby/<%= base_ver %>/ruby-<%= version %>.tar.gz|tar oxzC /tmp
 WORKDIR /tmp/ruby-<%= version %>
 
 RUN ./configure --disable-install-doc --prefix=/usr
