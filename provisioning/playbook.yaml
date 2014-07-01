@@ -1,9 +1,35 @@
 - hosts: all
   remote_user: vagrant
   sudo: yes
+  tasks:
+    - name: Make ~/.ssh
+      command: mkdir ~/.ssh creates=~/.ssh
+    - name: Install github ssh key
+      shell: ssh-keyscan github.com >> ~/.ssh/known_hosts
+- hosts: all
+  remote_user: vagrant
+  sudo: yes
   roles:
     - mivok0.users
     - angstwad.docker_ubuntu
+    - { role: hyao.rbenv,
+        rbenv_user: vagrant,
+
+        # select which plugins to install; set True to enable and False to disable
+        rbenv_ruby_build: True,
+        rbenv_vars: True,
+        rbenv_gem_rehash: True,
+        rbenv_binstubs: False,
+
+        # ruby installation; set True to install; rbenv_ruby_version to set ruby version to install
+        rbenv_install_ruby: True ,
+        rbenv_ruby_version: 2.1.2,
+        rbenv_ruby_make_opts: "-j 2",
+
+        rbenv_install_bundler: False,
+      }
+
+
   tasks:
     - meta: flush_handlers
     - name: Install python-pip

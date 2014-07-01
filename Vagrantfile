@@ -15,6 +15,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       host.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
       host.vm.synced_folder "images", "/docker_images"
+      host.vm.synced_folder "packaging", "/packaging"
   
       host.vm.provider "virtualbox" do |vb|
         vb.customize ["modifyvm", :id, "--memory", "2048"]
