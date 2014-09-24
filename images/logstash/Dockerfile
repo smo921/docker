@@ -12,7 +12,8 @@ RUN apt-get -yqq install logstash
 
 RUN mkdir /opt/logstash/conf
 ADD run.sh /opt/logstash/bin/run.sh
-ADD templates /opt/logstash/templates
+VOLUME /logstash-templates
+
 WORKDIR /opt/logstash
 
 EXPOSE 514

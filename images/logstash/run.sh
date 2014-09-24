@@ -7,7 +7,7 @@ if [ -z "${ES_PORT_9200_TCP_ADDR}" ] || [ -z "${ES_PORT_9200_TCP_PORT}" ]; then
 fi
 
 ## set the host and port for elasticsearch. MUST BE VISIBLE TO THE BROWSER!!
-find /opt/logstash/templates -type f | while read src; do
+find /logstash-templates -type f | while read src; do
     dest="/opt/logstash/conf/$( basename ${src} )"
     
     sed \
