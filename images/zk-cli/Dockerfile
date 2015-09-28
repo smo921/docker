@@ -10,7 +10,7 @@ RUN wget -q \
 RUN tar xzf zookeeper-3.4.6.tar.gz
 
 WORKDIR /zookeeper-3.4.6/src/c
-RUN ./configure && make cli_st && make cli_mt && mv cli_[sm]t /
+RUN ./configure && make cli_st && make cli_mt && make install && ldconfig -v
 WORKDIR /
 
-ENTRYPOINT /cli_st
+ENTRYPOINT ["/usr/local/bin/cli_st"]
