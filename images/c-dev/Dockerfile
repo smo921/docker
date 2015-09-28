@@ -4,4 +4,4 @@ MAINTAINER soberther@gmail.com
 ENV REFRESH_DATE 2015-09-24
 
 RUN apt-get -y update && \
-    apt-get -y install make gcc zlib1g-dev
+    apt-get -y install build-essential zlib1g-dev
