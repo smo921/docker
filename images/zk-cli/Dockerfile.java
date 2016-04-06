@@ -1,14 +1,16 @@
-FROM java:openjdk-8u66-jre
+FROM java:8-jre-alpine
 
 MAINTAINER soberther@gmail.com
 
-ENV REFRESH_DATE 2015-09
-ENV ZOOKEEPER_VERSION 3.4.6
+ENV REFRESH_DATE 2016-04
+ENV ZOOKEEPER_VERSION 3.4.8
+
+RUN apk update && apk add bash
 
 RUN wget -q \
- http://mirror.metrocast.net/apache/zookeeper/stable/zookeeper-3.4.6.tar.gz
-RUN tar xzf zookeeper-3.4.6.tar.gz
+ http://mirror.metrocast.net/apache/zookeeper/stable/zookeeper-3.4.8.tar.gz
+RUN tar xzf zookeeper-3.4.8.tar.gz
 
-WORKDIR /zookeeper-3.4.6/bin
+WORKDIR /zookeeper-3.4.8/bin
 
 ENTRYPOINT ["./zkCli.sh", "-server"]
