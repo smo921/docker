@@ -12,11 +12,11 @@ RUN wget -q -O /usr/local/bin/dumb-init \
  chmod +x /usr/local/bin/dumb-init
 
 RUN wget -q \
- http://mirror.metrocast.net/apache/zookeeper/stable/zookeeper-3.4.8.tar.gz
-
-RUN tar xzf zookeeper-3.4.8.tar.gz
-RUN ln -s /zookeeper-3.4.8 /zk
-RUN mkdir -p /zk/data /zk/conf /zk/log
+ http://mirror.metrocast.net/apache/zookeeper/stable/zookeeper-3.4.8.tar.gz && \
+ tar xzf zookeeper-3.4.8.tar.gz && \
+ rm zookeeper-3.4.8.tar.gz && \
+ ln -s /zookeeper-3.4.8 /zk && \
+ mkdir -p /zk/data /zk/conf /zk/log
 
 COPY zoo.cfg /zk/conf/zoo.cfg
 COPY run.sh /run.sh

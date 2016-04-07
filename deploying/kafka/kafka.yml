@@ -1,0 +1,30 @@
+kafka-1:
+  image: smo921/kafka
+  container_name: kafka-1
+  net: backend
+  environment:
+    - SERVER_ID=1
+    - ZK_SERVERS=3
+    - KAFKA_PATH=/kafka-foobar
+  volumes:
+    - /tmp/kafka/1/logs:/kafka/logs
+kafka-2:
+  image: smo921/kafka
+  container_name: kafka-2
+  net: backend
+  environment:
+    - SERVER_ID=2
+    - ZK_SERVERS=3
+    - KAFKA_PATH=/kafka-foobar
+  volumes:
+    - /tmp/kafka/2/logs:/kafka/logs
+kafka-3:
+  image: smo921/kafka
+  container_name: kafka-3
+  net: backend
+  environment:
+    - SERVER_ID=3
+    - ZK_SERVERS=3
+    - KAFKA_PATH=/kafka-foobar
+  volumes:
+    - /tmp/kafka/3/logs:/kafka/logs

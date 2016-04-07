@@ -1,0 +1,30 @@
+zookeeper-1:
+  image: smo921/zookeeper
+  container_name: zookeeper-1
+  net: backend
+  environment:
+    - SERVER_ID=1
+    - MAX_SERVERS=3
+  volumes:
+    - /tmp/zk/1/data:/zk/data
+    - /tmp/zk/1/log:/zk/log
+zookeeper-2:
+  image: smo921/zookeeper
+  container_name: zookeeper-2
+  net: backend
+  environment:
+    - SERVER_ID=2
+    - MAX_SERVERS=3
+  volumes:
+    - /tmp/zk/2/data:/zk/data
+    - /tmp/zk/2/log:/zk/log
+zookeeper-3:
+  image: smo921/zookeeper
+  container_name: zookeeper-3
+  net: backend
+  environment:
+    - SERVER_ID=3
+    - MAX_SERVERS=3
+  volumes:
+    - /tmp/zk/3/data:/zk/data
+    - /tmp/zk/3/log:/zk/log
