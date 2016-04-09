@@ -1,0 +1,2 @@
+docker create -v /etc/openldap/slapd -v /var/lib/openldap/openldap-data --name ldap-data smo921/ldap /bin/true
+docker run -ti --rm -P --volumes-from ldap-data -e LDAP_INIT=false smo921/ldap
