@@ -3,6 +3,7 @@ FROM golang:1.6-alpine
 ENV CONSUL_SERVER="consul-1"
 EXPOSE 8200
 WORKDIR /
+VOLUME /vault_logs
 
 RUN apk --update add bash wget ca-certificates libcap
 RUN wget -q -O /usr/local/bin/dumb-init \
