@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CONF="config/kafka.config"
-: ${SERVER_ID:=0}
+SERVER_ID=${SERVER_ID:=0}
 
 echo "Server ID: $SERVER_ID"
 echo "broker.id=$SERVER_ID" >> $CONF
@@ -12,7 +12,7 @@ if [ ! -z "$ZK_SERVERS" ]; then
   done
   echo "${ZK_CONNECT}${KAFKA_PATH}" >> $CONF
 else
-  echo "zookeeper.connect=zookeeper:2181" >> $CONF
+  echo "zookeeper.connect=zookeeper:2181${KAFKA_PATH}" >> $CONF
 	echo "Starting up in standalone mode"
 fi
 

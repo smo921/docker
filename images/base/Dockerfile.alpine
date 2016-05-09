@@ -1,0 +1,8 @@
+FROM alpine:latest
+MAINTAINER Steve Oberther stephenoberther@gmail.com
+
+ENV REFRESHED_AT 2016-04
+
+RUN apk add --update bash ca-certificates wget curl
+
+CMD ["/bin/bash"]
